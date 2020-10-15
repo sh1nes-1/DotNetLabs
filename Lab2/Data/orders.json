@@ -1,0 +1,82 @@
+[
+  {
+    "Id": "b875b2cd-4e32-4fcd-b828-e637516e9569",
+    "ClientId": "1257ad4f-2779-4d29-952e-437d4174a9bd",
+    "PizzaId": "e2317b1a-4b83-4079-9190-61f98907736d",
+    "Date": "2020-09-02T00:00:00",
+    "Amount": 1,
+    "Discount": 0
+  },
+  {
+    "Id": "adfdb297-153a-4212-872c-eb3d9ce17a86",
+    "ClientId": "1257ad4f-2779-4d29-952e-437d4174a9bd",
+    "PizzaId": "d54df0cf-ab2d-49ee-826d-ba0ced47a112",
+    "Date": "2020-08-12T00:00:00",
+    "Amount": 2,
+    "Discount": 0
+  },
+  {
+    "Id": "8cb91c68-38f2-4217-a8c0-b4c6f9d71a88",
+    "ClientId": "529d25a1-5181-40fb-9648-10287a9cd102",
+    "PizzaId": "fe2fc42c-b78c-45a1-9108-e02f5eab0b74",
+    "Date": "2020-06-22T00:00:00",
+    "Amount": 3,
+    "Discount": 0
+  },
+  {
+    "Id": "f18dd1a3-b78b-41ea-bceb-42023e731e27",
+    "ClientId": "529d25a1-5181-40fb-9648-10287a9cd102",
+    "PizzaId": "d54df0cf-ab2d-49ee-826d-ba0ced47a112",
+    "Date": "2020-07-12T00:00:00",
+    "Amount": 4,
+    "Discount": 0
+  },
+  {
+    "Id": "0d360fb4-28fc-4e5c-aa45-1481a2ae70c4",
+    "ClientId": "ac382283-e796-48a9-a18f-65346ea1668e",
+    "PizzaId": "9bb5b3e2-5107-41d1-9030-7626b763cc41",
+    "Date": "2020-07-03T00:00:00",
+    "Amount": 5,
+    "Discount": 20
+  },
+  {
+    "Id": "8da9a080-fe55-470d-9158-6221e59ba2a7",
+    "ClientId": "ac382283-e796-48a9-a18f-65346ea1668e",
+    "PizzaId": "d54df0cf-ab2d-49ee-826d-ba0ced47a112",
+    "Date": "2020-09-01T00:00:00",
+    "Amount": 6,
+    "Discount": 0
+  },
+  {
+    "Id": "7c477622-96d7-49d2-bf2f-022d830b524a",
+    "ClientId": "d32e3694-8cdd-40f1-88cd-c38817a27c10",
+    "PizzaId": "e2317b1a-4b83-4079-9190-61f98907736d",
+    "Date": "2020-08-30T00:00:00",
+    "Amount": 7,
+    "Discount": 0
+  },
+  {
+    "Id": "91f4fb55-d403-4ab3-9cf0-c7ecc51956d1",
+    "ClientId": "d32e3694-8cdd-40f1-88cd-c38817a27c10",
+    "PizzaId": "fe2fc42c-b78c-45a1-9108-e02f5eab0b74",
+    "Date": "2020-05-05T00:00:00",
+    "Amount": 8,
+    "Discount": 0
+  },
+  {
+    "Id": "2da98845-f94f-4c4d-a021-ff674b3f229e",
+    "ClientId": "8dbe6407-e878-4488-a04e-2e110ea0b31e",
+    "PizzaId": "e2317b1a-4b83-4079-9190-61f98907736d",
+    "Date": "2020-02-12T00:00:00",
+    "Amount": 9,
+    "Discount": 0
+  },
+  {
+    "Id": "824a58a7-c428-4be3-90ca-95ec684cc5db",
+    "ClientId": "8dbe6407-e878-4488-a04e-2e110ea0b31e",
+    "PizzaId": "82b289da-61d1-48a5-a7a7-4b95d873997d",
+    "Date": "2020-06-06T00:00:00",
+    "Amount": 1,
+    "Discount": 10
+  }
+]

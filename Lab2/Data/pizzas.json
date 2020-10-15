@@ -1,0 +1,32 @@
+[
+  {
+    "Id": "e2317b1a-4b83-4079-9190-61f98907736d",
+    "Name": "Пiца 1",
+    "Description": "Опис пiци 1",
+    "Price": 100
+  },
+  {
+    "Id": "fe2fc42c-b78c-45a1-9108-e02f5eab0b74",
+    "Name": "Пiца 2",
+    "Description": "Опис пiци 2",
+    "Price": 200
+  },
+  {
+    "Id": "d54df0cf-ab2d-49ee-826d-ba0ced47a112",
+    "Name": "Пiца 3",
+    "Description": "Опис пiци 3",
+    "Price": 300
+  },
+  {
+    "Id": "82b289da-61d1-48a5-a7a7-4b95d873997d",
+    "Name": "Пiца 4",
+    "Description": "Опис пiци 4",
+    "Price": 400
+  },
+  {
+    "Id": "9bb5b3e2-5107-41d1-9030-7626b763cc41",
+    "Name": "Пiца 5",
+    "Description": "Опис пiци 5",
+    "Price": 500
+  }
+]
