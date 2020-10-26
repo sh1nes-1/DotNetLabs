@@ -25,7 +25,20 @@ namespace Lab2
             context.SaveChanges();
         }
 
+        static void PrintTable<T>(string name, List<T> items) where T : class
+        {
+            Console.WriteLine($"\n------- {name} -------");
+            items.ForEach(Console.WriteLine);
+        }
+
         static void PrintData(ApplicationContext context)
+        {
+            PrintTable("Clients", context.Clients.ToList());
+            PrintTable("Pizzas", context.Pizzas.ToList());
+            PrintTable("Orders", context.Orders.ToList());
+        }
+
+        static void PrintAggregatedData(ApplicationContext context)
         {
             var data = context.Orders
                 .Join(context.Clients, o => o.ClientId, c => c.Id,
@@ -36,6 +49,7 @@ namespace Lab2
                 .GroupBy(t => new { t.FirstName, t.LastName })
                 .Where(g => g.Count() >= 2);
 
+            Console.WriteLine("\n------- Aggregated data -------");
             foreach (var el in data)
             {
                 string[] pizzas = el.Select(q => q.Pizza).ToArray();
@@ -60,6 +74,7 @@ namespace Lab2
             {
                 ImportData(context);
                 PrintData(context);
+                PrintAggregatedData(context);
                 DeleteData(context);
             }
         }

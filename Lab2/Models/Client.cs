@@ -20,5 +20,10 @@ namespace Lab2.Models
 
         [InverseProperty("Client")]
         public virtual ICollection<Order> Orders { get; set; }
+
+        public override string ToString()
+        {
+            return string.Join(" | ", new object[] { Id, FirstName, LastName, MiddleName, Address, Phone });
+        }
     }
 }

@@ -16,5 +16,10 @@ namespace Lab2.Models
 
         [InverseProperty("Pizza")]
         public virtual ICollection<Order> Orders { get; set; }
+
+        public override string ToString()
+        {
+            return string.Join(" | ", new object[] { Id, Name, Description, Price });
+        }
     }
 }

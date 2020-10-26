@@ -22,5 +22,10 @@ namespace Lab2.Models
         public int Amount { get; set; }
 
         public int Discount { get; set; }
+
+        public override string ToString()
+        {
+            return string.Join(" | ", new object[] { Id, ClientId, PizzaId, Date, Amount, Discount });
+        }
     }
 }
