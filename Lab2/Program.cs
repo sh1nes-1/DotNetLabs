@@ -39,6 +39,26 @@ namespace Lab2
             PrintTable("Orders", context.Orders.ToList());
         }
 
+        static void PrintRelations(ApplicationContext context)
+        {
+            var data = context.Clients
+                .GroupJoin(context.Orders, client => client.Id, order => order.ClientId,
+                    (x, y) => new { Client = x, Orders = y })
+                .SelectMany(xy => xy.Orders.DefaultIfEmpty(), (x, y) => new { x.Client, Order = y })                
+                .GroupBy(s => s.Client);
+
+            Console.WriteLine("\n------- Clients------ - ");
+            foreach (var el in data)
+            {
+                var pizzas = el.Select(x => x.Order?.Pizza.Name);
+                var pizzasStr = pizzas.Aggregate("", (prev, pizza) => prev + ", " + pizza).Substring(2);
+                if (pizzasStr.Length == 0) pizzasStr = "Not ordered pizzas";
+
+                Console.WriteLine($"Client {el.Key.FirstName} {el.Key.LastName} - {pizzasStr}");
+            }
+            Console.WriteLine("\n");
+        }
+
         static void PrintAggregatedData(ApplicationContext context)
         {
             var data = context.Orders
@@ -74,6 +94,7 @@ namespace Lab2
                 ImportData(context);
 
                 PrintData(context);
+                PrintRelations(context);
                 PrintAggregatedData(context);
             }
         }
