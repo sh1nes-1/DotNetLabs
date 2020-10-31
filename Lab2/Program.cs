@@ -4,6 +4,7 @@ using System.Linq;
 using System.Collections.Generic;
 using System.IO;
 using System;
+using Microsoft.EntityFrameworkCore;
 
 namespace Lab2
 {
@@ -41,22 +42,19 @@ namespace Lab2
         static void PrintAggregatedData(ApplicationContext context)
         {
             var data = context.Orders
-                .Join(context.Clients, o => o.ClientId, c => c.Id,
-                    (o, c) => new { PizzaId = o.PizzaId, FirstName = c.FirstName, LastName = c.LastName })
-                .Join(context.Pizzas, oc => oc.PizzaId, p => p.Id,
-                    (oc, p) => new { Pizza = p.Name, FirstName = oc.FirstName, LastName = oc.LastName })
-                .ToList()
-                .GroupBy(t => new { t.FirstName, t.LastName })
-                .Where(g => g.Count() >= 2);
+                .Join(context.Clients, o => o.ClientId, c => c.Id, (o, c) => new { o.PizzaId, ClientId = c.Id, c.FirstName, c.LastName })
+                .Join(context.Pizzas, oc => oc.PizzaId, p => p.Id, (oc, p) => new { Pizza = p.Name, oc.ClientId, oc.FirstName, oc.LastName })
+                .GroupBy(t => new { t.FirstName, t.LastName, t.ClientId })                
+                .Where(g => g.Count() >= 2)
+                .Select(e => new { e.Key, Count = e.Count(), Pizzas = e.Select(e => e.Pizza).ToList() })
+                .ToDictionary(e => e.Key, e => e.Pizzas);
 
             Console.WriteLine("\n------- Aggregated data -------");
             foreach (var el in data)
             {
-                string[] pizzas = el.Select(q => q.Pizza).ToArray();
-
                 Console.WriteLine($"'{el.Key.FirstName} {el.Key.LastName}' " +
-                    $"ordered pizzas [{string.Join(", ", pizzas)}], " +
-                    $"Count: {el.Count()}");
+                   $"ordered pizzas [{string.Join(", ", el.Value)}], " +
+                   $"Count: {el.Value}");
             }
         }
 
@@ -72,10 +70,11 @@ namespace Lab2
         {
             using (var context = new ApplicationContext())
             {
+                DeleteData(context);
                 ImportData(context);
+
                 PrintData(context);
                 PrintAggregatedData(context);
-                DeleteData(context);
             }
         }
     }
