@@ -1,0 +1,23 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<h1>Список клієнтів, які зробили більше 1 замовлення</h1>
+
+<table class="table">
+    <tr>
+        <th>Ім'я</th>
+        <th>Прізвище</th>
+        <th>Піци</th>
+    </tr>
+    @foreach (var client in Model.ClientsAndPizzas)
+    {
+        <tr>
+            <td>@client.FirstName</td>
+            <td>@client.LastName</td>
+            <td>@client.Pizzas</td>
+        </tr>
+    }
+</table>

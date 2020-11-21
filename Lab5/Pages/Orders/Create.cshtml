@@ -1,0 +1,52 @@
+﻿@page
+@model Lab5.Pages.Orders.CreateModel
+
+@{
+    ViewData["Title"] = "Створити замовлення";
+}
+
+<h1>Створити замовлення</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Order.ClientId" class="control-label">Клієнт</label>
+                <select asp-for="Order.ClientId" class ="form-control" asp-items="ViewBag.ClientId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order.PizzaId" class="control-label">Піца</label>
+                <select asp-for="Order.PizzaId" class ="form-control" asp-items="ViewBag.PizzaId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order.Date" class="control-label"></label>
+                <input asp-for="Order.Date" class="form-control" />
+                <span asp-validation-for="Order.Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order.Amount" class="control-label"></label>
+                <input asp-for="Order.Amount" class="form-control" />
+                <span asp-validation-for="Order.Amount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order.Discount" class="control-label"></label>
+                <input asp-for="Order.Discount" class="form-control" />
+                <span asp-validation-for="Order.Discount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Створити" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Назад до списку</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
